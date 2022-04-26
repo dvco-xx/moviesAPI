@@ -1,6 +1,5 @@
 package com.app.movieAPI.entity
 
-import com.fasterxml.jackson.databind.deser.std.DateDeserializers.CalendarDeserializer
 import org.hibernate.annotations.CreationTimestamp
 import java.util.Calendar
 import javax.persistence.*
@@ -8,10 +7,10 @@ import javax.validation.constraints.NotEmpty
 
 
 @Entity
-@Table(name="movie")
+@Table(name="Movie")
 class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     var id: Int? = null
 
@@ -28,44 +27,27 @@ class Movie {
     var rating: @NotEmpty String? = null
 
     @Column(nullable = false)
-    var producedby: String? = null
-
-    @Column(nullable = false)
-    var borrowedat: Calendar? = null
-
-    @Column(nullable = false)
-    var returnedat: Calendar? = null
+    var producer: @NotEmpty String? = null
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = true, unique = false)
     var datecreated: Calendar? = null
 
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = true, unique = false)
-    var datemodified: Calendar? = null
-
     constructor()
-
     constructor(
         title: String?,
         year: String?,
+        description: String?,
         rating: String?,
-        producedby: String?,
-        borrowedat: Calendar?,
-        returnedat: Calendar?,
-        datecreated: Calendar?,
-        datemodified: Calendar?,
+        producer: String?,
     ) {
         this.title = title
         this.year = year
+        this.description = description
         this.rating = rating
-        this.producedby = producedby
-        this.borrowedat = borrowedat
-        this.returnedat = returnedat
-        this.datecreated = datecreated
-        this.datemodified = datemodified
+        this.producer = producer
     }
+
 
 }

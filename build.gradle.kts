@@ -23,9 +23,10 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.springframework:spring-jdbc:5.3.18")
-	implementation("org.postgresql:postgresql:42.3.3")
-	implementation("org.springframework.boot:spring-boot-starter-validation:2.6.6")
+	implementation("org.springframework:spring-jdbc:5.3.19")
+	implementation("org.postgresql:postgresql:42.3.4")
+	implementation("org.apache.httpcomponents:httpclient:4.5.13")
+	implementation("org.springframework.boot:spring-boot-starter-validation:2.6.7")
 	runtimeOnly("com.h2database:h2")
 
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
